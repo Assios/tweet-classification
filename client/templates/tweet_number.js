@@ -6,9 +6,11 @@ Template.tweetNumber.events({
 
     Tweets.update(this._id, {
 
-      $inc: {positive: 1}
+      $set: {sentiment: "positive"}
 
     });
+
+    Router.go('tweetNumber', {_id: this.index + 1});
 
   },
 
@@ -18,9 +20,11 @@ Template.tweetNumber.events({
 
     Tweets.update(this._id, {
 
-      $inc: {neutral: 1}
+      $set: {sentiment: "neutral"}
 
     });
+
+    Router.go('tweetNumber', {_id: this.index + 1});
 
   },
 
@@ -30,8 +34,11 @@ Template.tweetNumber.events({
 
     Tweets.update(this._id, {
 
-      $inc: {negative: 1}
+      $set: {sentiment: "negative"}
 
     });
+
+    Router.go('tweetNumber', {_id: this.index + 1});
+
   }
 });
