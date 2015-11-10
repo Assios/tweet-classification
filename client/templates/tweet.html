@@ -2,6 +2,13 @@
 		<h2 class="text-center">#{{index}}</h2>
 		<blockquote class="twitter-tweet" lang="en"><p lang="da" dir="ltr">{{text}}</p></blockquote>
 
+		{{#if voted}}
+
+		<h3 class="text-center">
+			This tweet has already been classified: {{sentiment}}.
+		</h3>
+
+		{{else}}
 		<h3 class="text-center">
 			Choose the sentiment of this tweet:
 		</h3>
@@ -13,5 +20,6 @@
 			  <button type="button" class="btn btn-danger negative">Negative</button>
 			</div>
 		</div>
+		{{/if}}
 
 </template>

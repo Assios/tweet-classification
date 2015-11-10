@@ -1,3 +1,17 @@
+Template.tweet.helpers({
+
+  voted: function() {
+    if (this.sentiment == 0) {
+      return false;
+    }
+
+    else {
+      return true;
+    }
+  }
+
+});
+
 Template.tweet.events({
 
   "click .positive": function () {
