@@ -1,0 +1,17 @@
+<template name="tweetNumber">
+		<h2 class="text-center">#{{index}}</h2>
+		<blockquote class="twitter-tweet" lang="en"><p lang="da" dir="ltr">{{text}}</p></blockquote>
+
+		<h3 class="text-center">
+			Choose the sentiment of this tweet:
+		</h3>
+
+		<div class="text-center">
+			<div class="btn-group" role="group" aria-label="...">
+			  <button type="button" class="btn btn-success positive">Positive</button>
+			  <button type="button" class="btn btn-default neutral">Neutral</button>
+			  <button type="button" class="btn btn-danger negative">Negative</button>
+			</div>
+		</div>
+
+</template>
