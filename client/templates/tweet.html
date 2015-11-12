@@ -1,5 +1,8 @@
 <template name="tweets">
-		<h2 class="text-center">#{{index}}</h2>
+		<h2 class="text-center"><button type="button" class="btn btn-default previous-tweet" aria-label="Left Align">
+  <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></button>
+#{{index}}<button type="button" class="btn btn-default next-tweet" aria-label="Left Align">
+  <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button></h2>
 		<blockquote class="twitter-tweet" lang="en"><p lang="da" dir="ltr">{{text}}</p></blockquote>
 
 		{{#if user_already_voted}}
@@ -26,7 +29,7 @@
 
 		<div class="half-width">
 			{{#if topic}}
-			<input class="form-control" id="topic" placeholder="{{topic}}">
+			<input class="form-control" id="topic" placeholder="{{topic}}" value="{{topic}}">
 			{{else}}
 			<input class="form-control" id="topic" placeholder="Type topic here BEFORE choosing sentiment">
 			{{/if}}

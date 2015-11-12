@@ -202,3 +202,7 @@ blockquote p {
   margin-right: auto;
   margin-left: auto;
 }
+
+.next-tweet {
+  margin-left: 8px;
+}

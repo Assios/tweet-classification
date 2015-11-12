@@ -67,6 +67,18 @@ Template.tweets.events({
 
   },
 
+  "click .previous-tweet": function (e) {
+
+    Router.go('tweets', {_id: this.index - 1});
+
+  },
+
+  "click .next-tweet": function (e) {
+
+    Router.go('tweets', {_id: this.index + 1});
+
+  },
+
   "click .update-topic": function () {
 
     Tweets.update(this._id, {
