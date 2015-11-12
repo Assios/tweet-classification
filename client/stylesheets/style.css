@@ -196,3 +196,9 @@ blockquote p {
   display: inline;
   color: #555;
 }
+
+.half-width {
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+}

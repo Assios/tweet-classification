@@ -1,4 +1,4 @@
-Template.tweet.helpers({
+Template.tweets.helpers({
 
   voted: function() {
     if (this.sentiment == 0) {
@@ -9,36 +9,37 @@ Template.tweet.helpers({
       return true;
     }
   }
-
 });
 
-Template.tweet.events({
+Template.tweets.events({
 
-  "click .positive": function () {
+  "click .positive": function (e) {
 
     console.log("voted positive");
 
     Tweets.update(this._id, {
 
-      $set: {sentiment: "positive"}
+      $set: {sentiment: "positive", topic: $('#topic').val()}
 
     });
 
-    Router.go('tweet', {_id: this.index + 1});
+    Router.go('tweets', {_id: this.index + 1});
 
   },
 
-  "click .neutral": function () {
+  "click .neutral": function (e) {
+
+    var topic = $(e.target).find('[name=topic]').val();
 
     console.log("voted neutral");
 
     Tweets.update(this._id, {
 
-      $set: {sentiment: "neutral"}
+      $set: {sentiment: "neutral", topic: $('#topic').val()}
 
     });
 
-    Router.go('tweet', {_id: this.index + 1});
+    Router.go('tweets', {_id: this.index + 1});
 
   },
 
@@ -48,11 +49,24 @@ Template.tweet.events({
 
     Tweets.update(this._id, {
 
-      $set: {sentiment: "negative"}
+      $set: {sentiment: "negative", topic: $('#topic').val()}
 
     });
 
-    Router.go('tweet', {_id: this.index + 1});
+    Router.go('tweets', {_id: this.index + 1});
 
-  }
+  },
+
+  "click .update-topic": function () {
+
+    console.log("updated topic");
+
+    Tweets.update(this._id, {
+
+      $set: {topic: $('#topic').val()}
+
+    });
+
+    Router.go('tweets', {_id: this.index + 1});
+  },  
 });
