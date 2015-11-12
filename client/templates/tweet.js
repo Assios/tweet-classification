@@ -8,6 +8,13 @@ Template.tweets.helpers({
     else {
       return true;
     }
+  },
+
+  user_already_voted: function() {
+    if (this.voted_by.indexOf(Meteor.user().username) != -1) {
+      return true;
+    }
+    return false;
   }
 });
 
@@ -15,13 +22,13 @@ Template.tweets.events({
 
   "click .positive": function (e) {
 
-    console.log("voted positive");
-
     Tweets.update(this._id, {
 
-      $set: {sentiment: "positive", topic: $('#topic').val(), voted_by: Meteor.user().username }
+      $set: {positive: this.positive + 1, topic: $('#topic').val(), voted_by: this.voted_by.concat([Meteor.user().username]) }
 
     });
+
+    console.log("voted positive");
 
     $('#topic').val("");
     Router.go('tweets', {_id: this.index + 1});
@@ -32,13 +39,13 @@ Template.tweets.events({
 
     var topic = $(e.target).find('[name=topic]').val();
 
-    console.log("voted neutral");
-
     Tweets.update(this._id, {
 
-      $set: {sentiment: "neutral", topic: $('#topic').val(), voted_by: Meteor.user().username }
+      $set: {neutral: this.neutral + 1, topic: $('#topic').val(), voted_by: this.voted_by.concat([Meteor.user().username]) }
 
     });
+
+    console.log("voted neutral");
 
     $('#topic').val("");
     Router.go('tweets', {_id: this.index + 1});
@@ -47,13 +54,13 @@ Template.tweets.events({
 
   "click .negative": function () {
 
-    console.log("voted negative");
-
     Tweets.update(this._id, {
 
-      $set: {sentiment: "negative", topic: $('#topic').val(), voted_by: Meteor.user().username }
+      $set: {negative: this.negative + 1, topic: $('#topic').val(), voted_by: this.voted_by.concat([Meteor.user().username]) }
 
     });
+
+    console.log("voted negative");
 
     $('#topic').val("");
     Router.go('tweets', {_id: this.index + 1});
@@ -62,13 +69,13 @@ Template.tweets.events({
 
   "click .update-topic": function () {
 
-    console.log("updated topic");
-
     Tweets.update(this._id, {
 
       $set: {topic: $('#topic').val()}
 
     });
+
+    console.log("updated topic");
 
     $('#topic').val("");
   },  

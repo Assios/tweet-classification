@@ -2,10 +2,10 @@
 		<h2 class="text-center">#{{index}}</h2>
 		<blockquote class="twitter-tweet" lang="en"><p lang="da" dir="ltr">{{text}}</p></blockquote>
 
-		{{#if voted}}
+		{{#if user_already_voted}}
 
 		<h3 class="text-center">
-			This tweet has already been classified {{sentiment}} by {{voted_by}}.
+			You have already classified this tweet.
 		</h3>
 
 		<div class="half-width">
