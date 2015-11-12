@@ -19,10 +19,11 @@ Template.tweets.events({
 
     Tweets.update(this._id, {
 
-      $set: {sentiment: "positive", topic: $('#topic').val()}
+      $set: {sentiment: "positive", topic: $('#topic').val(), voted_by: Meteor.user().username }
 
     });
 
+    $('#topic').val("");
     Router.go('tweets', {_id: this.index + 1});
 
   },
@@ -35,10 +36,11 @@ Template.tweets.events({
 
     Tweets.update(this._id, {
 
-      $set: {sentiment: "neutral", topic: $('#topic').val()}
+      $set: {sentiment: "neutral", topic: $('#topic').val(), voted_by: Meteor.user().username }
 
     });
 
+    $('#topic').val("");
     Router.go('tweets', {_id: this.index + 1});
 
   },
@@ -49,10 +51,11 @@ Template.tweets.events({
 
     Tweets.update(this._id, {
 
-      $set: {sentiment: "negative", topic: $('#topic').val()}
+      $set: {sentiment: "negative", topic: $('#topic').val(), voted_by: Meteor.user().username }
 
     });
 
+    $('#topic').val("");
     Router.go('tweets', {_id: this.index + 1});
 
   },
@@ -67,6 +70,6 @@ Template.tweets.events({
 
     });
 
-    Router.go('tweets', {_id: this.index + 1});
+    $('#topic').val("");
   },  
 });
