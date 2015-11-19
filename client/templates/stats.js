@@ -1,3 +1,0 @@
-Template.stats.helpers({
-
-});
