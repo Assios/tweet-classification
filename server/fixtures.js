@@ -1,5 +1,5 @@
 function getAllTweets() {
-    var url = "http://localhost:8888"
+    var url = "http://assios.no:8888"
 
     var result = Meteor.http.get(url, {
         timeout: 15000
