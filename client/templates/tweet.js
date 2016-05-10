@@ -24,7 +24,7 @@ Template.tweets.events({
 
     Tweets.update(this._id, {
 
-      $set: {positive: this.positive + 1, topic: $('#topic').val(), voted_by: this.voted_by.concat([Meteor.user().username]) }
+      $set: {quality: "good" }
 
     });
 
@@ -35,28 +35,12 @@ Template.tweets.events({
 
   },
 
-  "click .neutral": function (e) {
-
-    var topic = $(e.target).find('[name=topic]').val();
-
-    Tweets.update(this._id, {
-
-      $set: {neutral: this.neutral + 1, topic: $('#topic').val(), voted_by: this.voted_by.concat([Meteor.user().username]) }
-
-    });
-
-    console.log("voted neutral");
-
-    $('#topic').val("");
-    Router.go('tweets', {_id: this.index + 1});
-
-  },
 
   "click .negative": function () {
 
     Tweets.update(this._id, {
 
-      $set: {negative: this.negative + 1, topic: $('#topic').val(), voted_by: this.voted_by.concat([Meteor.user().username]) }
+      $set: {quality: "bad" }
 
     });
 

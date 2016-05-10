@@ -7,48 +7,16 @@
   <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button></h2>
 		<blockquote class="twitter-tweet" lang="en"><p lang="da" dir="ltr">{{text}}</p></blockquote>
 
-		{{#if user_already_voted}}
 
 		<h3 class="text-center">
-			You have already classified this tweet.
-		</h3>
-
-		<div class="half-width">
-			{{#if topic}}
-			<input class="form-control" id="topic" placeholder="{{topic}}">
-			{{else}}
-			<input class="form-control" id="topic" placeholder="Type topic here BEFORE choosing sentiment">
-			{{/if}}
-		</div>
-
-		<br>
-
-	<div class="text-center">
-			<button type="button" class="btn btn-default neutral">Update topic</button>
-	</div>
-
-		{{else}}
-
-		<div class="half-width">
-			{{#if topic}}
-			<input class="form-control" id="topic" placeholder="{{topic}}" value="{{topic}}">
-			{{else}}
-			<input class="form-control" id="topic" placeholder="Type topic here BEFORE choosing sentiment">
-			{{/if}}
-		</div>
-
-		<h3 class="text-center">
-			Choose the sentiment of this tweet:
+			Choose the quality of this tweet:
 		</h3>
 
 		<div class="text-center">
 			<div class="btn-group" role="group" aria-label="...">
-			  <button type="button" class="btn btn-success positive">Positive</button>
-			  <button type="button" class="btn btn-default neutral">Neutral</button>
-			  <button type="button" class="btn btn-danger negative">Negative</button>
+			  <button type="button" class="btn btn-success positive">High-quality</button>
+			  <button type="button" class="btn btn-danger negative">Low-quality</button>
 			</div>
 		</div>
-
-		{{/if}}
 
 </template>
